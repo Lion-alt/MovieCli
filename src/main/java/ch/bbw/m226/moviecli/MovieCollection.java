@@ -6,4 +6,8 @@ public record MovieCollection(List<Movie> movies) {
     public MovieCollection(List<Movie> movies) {
         this.movies = movies;
     }
+
+
+
+
 }

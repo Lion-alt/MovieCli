@@ -1,6 +1,10 @@
 package ch.bbw.m226.moviecli;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 public record Movie(String title, int year, Genre genre) {
+
+
 
     public Movie(String title, int year, Genre genre) {
         if(title == null) {

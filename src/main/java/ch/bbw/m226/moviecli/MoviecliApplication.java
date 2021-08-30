@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class MoviecliApplication implements CommandLineRunner {
-
+	private final MovieStore movieStore;
 
     private static Logger LOG = LoggerFactory
       .getLogger(MoviecliApplication.class);
@@ -20,15 +20,22 @@ public class MoviecliApplication implements CommandLineRunner {
         SpringApplication.run(MoviecliApplication.class, args);
         LOG.info("APPLICATION FINISHED");
     }
+
+
+		public MoviecliApplication(MovieStore movieStore) 
+		{        this.movieStore = movieStore;
+		}
  
     @Override
-    public void run(String... args) {
+    public void run(String... args) throws Exception {
         LOG.info("EXECUTING : command line runner");
  
         for (int i = 0; i < args.length; ++i) {
             LOG.info("args[{}]: {}", i, args[i]);
         }
+		movieStore.persist(null);
     }
+
 }
 
 
